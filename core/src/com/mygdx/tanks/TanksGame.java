@@ -30,6 +30,7 @@ public class TanksGame extends ApplicationAdapter {
     private long reloadTime; //milisekundy
     private double missileSpeed;     // jednostki odswiezen
 
+
 	@Override
 	public void create () {
         board = new Board("plansza.txt");
