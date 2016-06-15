@@ -220,6 +220,7 @@ public class TanksGame extends ApplicationAdapter {
                     if (missile.getY() <= 0) board.missilesList.remove(i);
                     break;
 
+
                 }
             }
         }
