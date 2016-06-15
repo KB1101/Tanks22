@@ -192,6 +192,7 @@ public class TanksGame extends ApplicationAdapter {
                 case DOWN: {
                     if (missile.getY() <= 0) board.missilesList.remove(i);
                     break;
+
                 }
             }
         }
