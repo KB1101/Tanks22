@@ -1,13 +1,18 @@
 package model;
 
 import java.io.*;
+import java.net.Socket;
 import java.util.ArrayList;
 import com.mygdx.tanks.Constants;
+import com.mygdx.tanks.SocketWorker;
 
 public class Board {
     public ArrayList <Block> objectsList;
     public ArrayList <Missile> missilesList;
     public ArrayList <Tank> tanksList;
+
+    public static final int PORT = 8088;
+    public static final String ip = "localhost";
 
     public Board(String path) {
         objectsList = new ArrayList<Block>();
@@ -47,7 +52,12 @@ public class Board {
         } catch (IOException ex) {
             ex.getMessage();
         }
+        createSocket();
 
     }
-
+    private  void createSocket(){
+        Socket socket = new Socket(ip, PORT);
+        SocketWorker sw = new SocketWorker(socket,this);
+        new Thread(sw).start();
+    }
 }

@@ -30,6 +30,7 @@ public class TanksGame extends ApplicationAdapter {
     private long reloadTime; //milisekundy
     private double missileSpeed;     // jednostki odswiezen
 
+
 	@Override
 	public void create () {
         board = new Board("plansza.txt");
@@ -219,6 +220,7 @@ public class TanksGame extends ApplicationAdapter {
                 case DOWN: {
                     if (missile.getY() <= 0) board.missilesList.remove(i);
                     break;
+
 
                 }
             }
