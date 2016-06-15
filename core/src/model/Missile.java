@@ -25,6 +25,24 @@ public class Missile extends Rectangle {
         this.shooter = shooter;
     }
 
+    public Missile(Tank shooter, Direction direction, int x, int y){
+        super();
+        this.width = 13;
+        this.height = 10;
+        if (direction == Direction.LEFT || direction == Direction.DOWN)
+        {
+            this.endX = 0;
+            this.endY = 0;
+        } else {
+            this.endX = Constants.WIDTH;
+            this.endY = Constants.HEIGHT;
+        }
+        this.direction = shooter.getDirection();
+        this.shooter = shooter;
+        this.x = x;
+        this.y = y;
+    }
+
     public Direction getDirection() {
         return this.direction;
     }

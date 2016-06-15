@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import model.*;
@@ -56,6 +57,7 @@ public class TanksGame extends ApplicationAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         drawMissiles();
+        launchMissile(board.tanksList.get(2));
         removeRedundantMissiles();
         drawBoard();
         batch.end();
@@ -103,6 +105,7 @@ public class TanksGame extends ApplicationAdapter {
         for (Block object:temp){
             board.objectsList.add(object);
         }
+        deleteUselessTanks();
     }
 
     private Texture returnProperTexture(int id)
@@ -224,15 +227,14 @@ public class TanksGame extends ApplicationAdapter {
         }
     }
 
-    private Point getMissileStartingPosition()
+    private Point getMissileStartingPosition(Tank tank)
     {
         Point start = new Point();
         start.x = 0;
         start.y = 0;
-        Tank tank = board.tanksList.get(activePlayerId);
         switch (tank.getDirection()) {
             case LEFT: {
-                start.x = (int) (tank.getX());
+                start.x = (int) (tank.getX()-10);
                 start.y = (int) (tank.getY() + tank.height / 2 - 5);
                 break;
             }
@@ -248,7 +250,7 @@ public class TanksGame extends ApplicationAdapter {
             }
             case DOWN: {
                 start.x = (int) (tank.getX() + tank.width / 2 - 5);
-                start.y = (int) (tank.getY());
+                start.y = (int) (tank.getY()-5);
                 break;
             }
 
@@ -256,10 +258,9 @@ public class TanksGame extends ApplicationAdapter {
         return start;
     }
 
-    private void launchMissile(){
-        Tank tank = board.tanksList.get(activePlayerId);
+    private void launchMissile(Tank tank){
         if(this.timeStart >= timeEnd) {  //sprawdza czy upłyna zadany czas przaładowania
-            Point start = getMissileStartingPosition();
+            Point start = getMissileStartingPosition(tank);
             //start_x i start_y to początkowa pozycja pocisku
             Missile missile = new Missile(tank, tank.getDirection());
             missile.x = start.x;
@@ -294,9 +295,21 @@ public class TanksGame extends ApplicationAdapter {
             }
         }
         tankWithTankCollision(activeTank, x, y);
+        int missileId=-1;
+        int i=0;
         for (Missile missile:board.missilesList){
-
+            if (activeTank.intersection(missile).width >5 && activeTank.intersection(missile).height >5) {
+                activeTank.setLives(activeTank.getLives()-1);
+                missileId =i;
+            }
+            i++;
         }
+        if (missileId != -1)
+            deleteMissile(missileId);
+    }
+
+    private void deleteMissile(int id){
+        board.missilesList.remove(id);
     }
 
     private void tankWithTankCollision(Tank activeTank, int x, int y)
@@ -307,6 +320,14 @@ public class TanksGame extends ApplicationAdapter {
                 activeTank.x=x;
                 activeTank.y=y;
             }
+        }
+    }
+
+    private void deleteUselessTanks()
+    {
+        for (int i=0; i<board.tanksList.size(); i++){
+            if (board.tanksList.get(i).getLives() == 0)
+                board.tanksList.remove(i);
         }
     }
 
@@ -333,7 +354,7 @@ public class TanksGame extends ApplicationAdapter {
                 tank.setDirection(Direction.DOWN);
             }
             else if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
-                this.launchMissile();
+                this.launchMissile(tank);
             }
         collisionDetector(x,y);
     }
