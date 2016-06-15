@@ -52,7 +52,7 @@ public class TanksGame extends ApplicationAdapter {
 
 	@Override
 	public void render () {
-        //update();
+        update();
         Gdx.gl.glClearColor(0.0f, 0.0f, 0.0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
@@ -127,7 +127,19 @@ public class TanksGame extends ApplicationAdapter {
         }
     }
 
+    private void drawTanks()
+    {
+        for (Tank tank:board.tanksList){
+            double x = tank.getX();
+            double y = tank.getY();
+            batch.draw(new TextureRegion(returnProperTexture(tank.getPlayerId())), (float)x, (float)y,
+                    (float) tank.getCenterX()-(float)x, (float) tank.getCenterY()-(float)y,
+                    (float) tank.getWidth(), (float) tank.getHeight(), 1f, 1f, (float) tank.getDirection().getValue()*90);
+        }
+    }
+
     private void drawBoard(){
+        drawTanks();
         int j=0;
         for (Block object: board.objectsList){
             switch (object.getSymbol()){
@@ -147,13 +159,6 @@ public class TanksGame extends ApplicationAdapter {
             checkForCollisions(object, j);
             // szybka kolizja pociskow -- potem zastapi ja serwer
             j++;
-        }
-        for (Tank tank:board.tanksList){
-            double x = tank.getX();
-            double y = tank.getY();
-            batch.draw(new TextureRegion(returnProperTexture(tank.getPlayerId())), (float)x, (float)y,
-                (float) tank.getCenterX()-(float)x, (float) tank.getCenterY()-(float)y,
-                (float) tank.getWidth(), (float) tank.getHeight(), 1f, 1f, (float) tank.getDirection().getValue()*90);
         }
         updateBoardState();
     }
@@ -253,6 +258,7 @@ public class TanksGame extends ApplicationAdapter {
     }
 
     private void launchMissile(){
+        Tank tank = board.tanksList.get(activePlayerId);
         if(this.timeStart >= timeEnd) {  //sprawdza czy upłyna zadany czas przaładowania
             Point start = getMissileStartingPosition();
             //start_x i start_y to początkowa pozycja pocisku
@@ -264,7 +270,8 @@ public class TanksGame extends ApplicationAdapter {
         }
     }
 
-    /*private void collisionDetector(int x, int y){
+    private void collisionDetector(int x, int y){
+        Tank tank = board.tanksList.get(activePlayerId);
         //uniemożliwienie wyjechania poza planszę
         if (tank.getX() >= Constants.WIDTH - Constants.TANK_SIZE || tank.getX() <=0 ||
             tank.getY() <= 0 || tank.getY() >= Constants.HEIGHT - Constants.TANK_SIZE)
@@ -287,10 +294,11 @@ public class TanksGame extends ApplicationAdapter {
                 tank.y = y;
             }
         }
-    }*/
+    }
 
-   /* private void update(){
+    private void update(){
         this.timeStart = date.getTime();
+        Tank tank = board.tanksList.get(activePlayerId);
         int x = (int) tank.getX();
         int y = (int) tank.getY();
         //Odczyt klawiszy
@@ -314,7 +322,7 @@ public class TanksGame extends ApplicationAdapter {
                 this.launchMissile();
             }
         collisionDetector(x,y);
-    }*/
+    }
 
 
 	@Override
