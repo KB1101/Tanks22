@@ -21,6 +21,7 @@ public class TanksGame extends ApplicationAdapter {
 	Texture greenTankTexture, redTankTexture, blueTankTexture, orangeTankTexture;
 	Texture shrubTexture, brickTexture, stoneTexture, missileTexture;
     //Tank tank = new Tank(1,5, Constants.TANK_START_X * Constants.TANK_SIZE, Constants.TANK_START_Y * Constants.TANK_SIZE);
+    @Deprecated int activePlayerId = 1;
     Board board;
 
     private Date date;
@@ -219,11 +220,12 @@ public class TanksGame extends ApplicationAdapter {
         }
     }
 
-    /*private Point getMissileStartingPosition()
+    private Point getMissileStartingPosition()
     {
         Point start = new Point();
         start.x = 0;
         start.y = 0;
+        Tank tank = board.tanksList.get(activePlayerId);
         switch (tank.getDirection()) {
             case LEFT: {
                 start.x = (int) (tank.getX());
@@ -248,10 +250,10 @@ public class TanksGame extends ApplicationAdapter {
 
         }
         return start;
-    }*/
+    }
 
-    /*private void launchMissile(){
-        if(this.timeStart >= timeEnd) {  sprawdza czy upłyna rzadany czas przaładowania
+    private void launchMissile(){
+        if(this.timeStart >= timeEnd) {  //sprawdza czy upłyna zadany czas przaładowania
             Point start = getMissileStartingPosition();
             //start_x i start_y to początkowa pozycja pocisku
             Missile missile = new Missile(tank, tank.getDirection());
@@ -260,7 +262,7 @@ public class TanksGame extends ApplicationAdapter {
             board.missilesList.add(missile);
             timeEnd = this.date.getTime() + this.reloadTime;
         }
-    }*/
+    }
 
     /*private void collisionDetector(int x, int y){
         //uniemożliwienie wyjechania poza planszę

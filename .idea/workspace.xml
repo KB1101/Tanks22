@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4d5d2da-3503-4f41-b24e-dc0f315c2719" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/tanks/TanksGame$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/tanks/TanksGame$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/tanks/TanksGame.class" afterPath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/tanks/TanksGame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/model/Board.class" afterPath="$PROJECT_DIR$/core/build/classes/main/model/Board.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/model/Tank.class" afterPath="$PROJECT_DIR$/core/build/classes/main/model/Tank.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/plansza.txt" afterPath="$PROJECT_DIR$/core/assets/plansza.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/model/Board.java" afterPath="$PROJECT_DIR$/core/src/model/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/model/Tank.java" afterPath="$PROJECT_DIR$/core/src/model/Tank.java" />
     </list>
     <ignored path="Tanks22.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TanksGame.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TanksGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+            <state relative-caret-position="248">
+              <caret line="254" column="33" selection-start-line="254" selection-start-column="33" selection-end-line="254" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -111,7 +112,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plansza.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="plansza.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/assets/plansza.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
@@ -861,9 +862,9 @@
         <option value="$PROJECT_DIR$/desktop/src/com/mygdx/tanks/desktop/DesktopLauncher.java" />
         <option value="$PROJECT_DIR$/core/src/model/Block.java" />
         <option value="$PROJECT_DIR$/core/src/model/Tank.java" />
-        <option value="$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java" />
         <option value="$PROJECT_DIR$/core/src/model/Board.java" />
         <option value="$PROJECT_DIR$/core/assets/plansza.txt" />
+        <option value="$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java" />
       </list>
     </option>
   </component>
@@ -1445,7 +1446,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1465889643878</updated>
-      <workItem from="1466017524256" duration="1677000" />
+      <workItem from="1466017524256" duration="2009000" />
     </task>
     <task id="LOCAL-00001" summary="initialize">
       <created>1466016590120</created>
@@ -1475,11 +1476,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466018143379</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Tanks list added to Board">
+      <created>1466019237603</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1466019237603</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1677000" />
+    <option name="totallyTimeSpent" value="2009000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1521,17 +1529,12 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="initialize" />
-    <option name="LAST_COMMIT_MESSAGE" value="initialize" />
+    <MESSAGE value="Tanks list added to Board" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tanks list added to Board" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java</url>
-          <line>161</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/model/Board.java</url>
           <line>39</line>
@@ -1720,18 +1723,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/assets/plansza.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="63" selection-start-line="13" selection-start-column="63" selection-end-line="13" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="254" column="33" selection-start-line="254" selection-start-column="33" selection-end-line="254" selection-end-column="33" />
           <folding />
         </state>
       </provider>
