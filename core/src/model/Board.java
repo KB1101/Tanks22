@@ -7,10 +7,12 @@ import com.mygdx.tanks.Constants;
 public class Board {
     public ArrayList <Block> objectsList;
     public ArrayList <Missile> missilesList;
+    public ArrayList <Tank> tanksList;
 
     public Board(String path) {
         objectsList = new ArrayList<Block>();
         missilesList = new ArrayList<Missile>();
+        tanksList = new ArrayList<Tank>();
         try {
             BufferedReader br = new BufferedReader(new FileReader("plansza.txt"));
             br.read();
@@ -30,6 +32,12 @@ public class Board {
                         case 'Z': {
                             this.objectsList.add(new Shrub(j*25, Constants.HEIGHT -i*25));
                             break;
+                        }
+                        case '-': {
+                            break;
+                        }
+                        default: {
+                            this.tanksList.add(new Tank(sign-'0',5, j*25, Constants.HEIGHT -i*25));
                         }
                     }
                 }
