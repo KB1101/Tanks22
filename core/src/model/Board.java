@@ -14,6 +14,10 @@ public class Board {
     public static final int PORT = 8088;
     public static final String ip = "localhost";
 
+    private Socket socket;
+    private SocketWorker sw;
+
+
     public Board(String path) {
         objectsList = new ArrayList<Block>();
         missilesList = new ArrayList<Missile>();
@@ -55,11 +59,16 @@ public class Board {
         createSocket();
 
     }
+    public void send(String text){
+        this.sw.send(text);
+    }
+
     private  void createSocket(){
-        Socket socket = null;
+        this.socket = null;
+        this.sw = null;
         try {
             socket = new Socket(ip, PORT);
-            SocketWorker sw = new SocketWorker(socket,this);
+            sw = new SocketWorker(socket,this);
             new Thread(sw).start();
         } catch (IOException e) {
             e.printStackTrace();

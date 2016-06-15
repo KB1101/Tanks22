@@ -2,10 +2,7 @@ package com.mygdx.tanks;
 
 import model.Board;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.net.SocketAddress;
 
@@ -15,6 +12,11 @@ import java.net.SocketAddress;
 public class SocketWorker implements Runnable {
     private  Socket socket;
     private Board board;
+    private InputStream inputStream;
+    private OutputStream outputStream;
+    private DataInputStream dis;
+    private DataOutputStream dos;
+
     public SocketWorker(Socket socket, Board board){
         this.socket = socket;
         this.board = board;
@@ -22,10 +24,10 @@ public class SocketWorker implements Runnable {
 
     public void run(){
         try{
-            InputStream inputStream = this.socket.getInputStream();
-            OutputStream outputStream = this.socket.getOutputStream();
-            DataInputStream dis = new DataInputStream(inputStream);
-            DataOutputStream dos = new DataOutputStream(outputStream);
+            this.inputStream = this.socket.getInputStream();
+            this.outputStream = this.socket.getOutputStream();
+            this.dis = new DataInputStream(inputStream);
+            this.dos = new DataOutputStream(outputStream);
             SocketAddress sockaddr = this.socket.getRemoteSocketAddress();
 
             System.out.println("Nawiązano połaczenie z: " + sockaddr.toString() );
@@ -63,6 +65,7 @@ public class SocketWorker implements Runnable {
 
             while ((bytes = dis.read(buffer)) != -1) {
                 System.out.write(buffer, 0, bytes);
+                System.out.println(" ");
                 //  akcje
             }
 
@@ -72,5 +75,11 @@ public class SocketWorker implements Runnable {
             //this.magazyn.delUser();
         }
     }
-
+    public void send(String str){
+        try {
+            this.dos.writeBytes(str);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

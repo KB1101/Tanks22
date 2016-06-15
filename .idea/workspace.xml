@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4d5d2da-3503-4f41-b24e-dc0f315c2719" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/tanks/TanksGame.class" afterPath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/tanks/TanksGame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/model/Board.class" afterPath="$PROJECT_DIR$/core/build/classes/main/model/Board.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/mygdx/tanks/SocketWorker.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/tanks/SocketWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/model/Board.java" afterPath="$PROJECT_DIR$/core/src/model/Board.java" />
     </list>
     <ignored path="Tanks22.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,7 +55,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TanksGame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TanksGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="526">
@@ -83,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SocketWorker.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SocketWorker.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/tanks/SocketWorker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="356">
+              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,9 +100,12 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/model/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="573">
-              <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="254">
+              <caret line="62" column="27" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
+              <folding>
+                <element signature="e#2085#2086#0" expanded="true" />
+                <element signature="e#2119#2120#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -944,10 +949,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/src/model/Board.java" />
-        <option value="$PROJECT_DIR$/core/src/com/mygdx/tanks/SocketWorker.java" />
         <option value="$PROJECT_DIR$/core/src/model/Direction.java" />
         <option value="$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java" />
+        <option value="$PROJECT_DIR$/core/src/model/Board.java" />
+        <option value="$PROJECT_DIR$/core/src/com/mygdx/tanks/SocketWorker.java" />
       </list>
     </option>
   </component>
@@ -1420,7 +1425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466023087345</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="zaczynam powoli wysylac dane do serwera">
+      <created>1466024600674</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1466024600674</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1462,7 +1474,8 @@
     </ignored-roots>
     <MESSAGE value="initialize" />
     <MESSAGE value="new features" />
-    <option name="LAST_COMMIT_MESSAGE" value="new features" />
+    <MESSAGE value="zaczynam powoli wysylac dane do serwera" />
+    <option name="LAST_COMMIT_MESSAGE" value="zaczynam powoli wysylac dane do serwera" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1493,7 +1506,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2085#2086#0" expanded="true" />
+            <element signature="e#2119#2120#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1614,7 +1630,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2085#2086#0" expanded="true" />
+            <element signature="e#2119#2120#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2038,24 +2057,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/model/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/tanks/SocketWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/tanks/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -2077,6 +2078,27 @@
         <state relative-caret-position="526">
           <caret line="349" column="37" selection-start-line="349" selection-start-column="37" selection-end-line="349" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/model/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="62" column="27" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
+          <folding>
+            <element signature="e#2085#2086#0" expanded="true" />
+            <element signature="e#2119#2120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/tanks/SocketWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
