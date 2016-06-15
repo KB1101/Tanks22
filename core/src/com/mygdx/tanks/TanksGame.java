@@ -271,18 +271,18 @@ public class TanksGame extends ApplicationAdapter {
     }
 
     private void collisionDetector(int x, int y){
-        Tank tank = board.tanksList.get(activePlayerId);
+        Tank activeTank = board.tanksList.get(activePlayerId);
         //uniemożliwienie wyjechania poza planszę
-        if (tank.getX() >= Constants.WIDTH - Constants.TANK_SIZE || tank.getX() <=0 ||
-            tank.getY() <= 0 || tank.getY() >= Constants.HEIGHT - Constants.TANK_SIZE)
+        if (activeTank.getX() >= Constants.WIDTH - Constants.TANK_SIZE || activeTank.getX() <=0 ||
+            activeTank.getY() <= 0 || activeTank.getY() >= Constants.HEIGHT - Constants.TANK_SIZE)
         {
-            tank.x = x;
-            tank.y = y;
+            activeTank.x = x;
+            activeTank.y = y;
         } else {  //sprawdzenie kolizji, czyli dzięki temu czołg nie wjeżdża na bloki (chyba, że to zarośla)
             boolean isCollision = false;
             for (Block object : board.objectsList)
             {
-                if (object.intersection(tank).width >2 && object.intersection(tank).height >2 && object.getSymbol() != 'Z')
+                if (object.intersection(activeTank).width >2 && object.intersection(activeTank).height >2 && object.getSymbol() != 'Z')
                 {
                     isCollision = true;
                     break;
@@ -290,8 +290,15 @@ public class TanksGame extends ApplicationAdapter {
             }
             if (isCollision)   //Jeśli wystąpiła kolizja z blokiem, to cofnij na pole sprzed zmiany
             {
-                tank.x = x;
-                tank.y = y;
+                activeTank.x = x;
+                activeTank.y = y;
+            }
+        }
+        for (Tank tank:board.tanksList){
+            if (tank.equals(activeTank)) continue;      //dla swojego nie sprawdzaj!
+            if (activeTank.intersection(tank).width>0 && activeTank.intersection(tank).height >0 ){
+                activeTank.x=x;
+                activeTank.y=y;
             }
         }
     }
