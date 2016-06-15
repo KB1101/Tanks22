@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4d5d2da-3503-4f41-b24e-dc0f315c2719" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/mygdx/tanks/SocketWorker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/tanks/TanksGame$1.class" afterPath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/tanks/TanksGame$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/tanks/TanksGame.class" afterPath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/tanks/TanksGame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/model/Board.java" afterPath="$PROJECT_DIR$/core/src/model/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/com/mygdx/tanks/desktop/DesktopLauncher.java" afterPath="$PROJECT_DIR$/desktop/src/com/mygdx/tanks/desktop/DesktopLauncher.java" />
     </list>
     <ignored path="Tanks22.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1314,7 +1310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466016590120</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="do board dodaje socket">
+      <created>1466021465513</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1466021465513</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1355,7 +1358,8 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="initialize" />
-    <option name="LAST_COMMIT_MESSAGE" value="initialize" />
+    <MESSAGE value="do board dodaje socket" />
+    <option name="LAST_COMMIT_MESSAGE" value="do board dodaje socket" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
