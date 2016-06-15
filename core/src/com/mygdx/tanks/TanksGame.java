@@ -20,7 +20,6 @@ public class TanksGame extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture greenTankTexture, redTankTexture, blueTankTexture, orangeTankTexture;
 	Texture shrubTexture, brickTexture, stoneTexture, missileTexture;
-    //Tank tank = new Tank(1,5, Constants.TANK_START_X * Constants.TANK_SIZE, Constants.TANK_START_Y * Constants.TANK_SIZE);
     @Deprecated int activePlayerId = 1;
     Board board;
 
@@ -294,6 +293,14 @@ public class TanksGame extends ApplicationAdapter {
                 activeTank.y = y;
             }
         }
+        tankWithTankCollision(activeTank, x, y);
+        for (Missile missile:board.missilesList){
+
+        }
+    }
+
+    private void tankWithTankCollision(Tank activeTank, int x, int y)
+    {
         for (Tank tank:board.tanksList){
             if (tank.equals(activeTank)) continue;      //dla swojego nie sprawdzaj!
             if (activeTank.intersection(tank).width>0 && activeTank.intersection(tank).height >0 ){

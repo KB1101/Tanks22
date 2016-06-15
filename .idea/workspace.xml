@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4d5d2da-3503-4f41-b24e-dc0f315c2719" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/tanks/TanksGame.class" afterPath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/tanks/TanksGame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java" />
     </list>
@@ -39,7 +38,18 @@
           <activation />
         </task>
         <projects_view>
-          <tree_state />
+          <tree_state>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Tanks22" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+            </PATH>
+          </tree_state>
         </projects_view>
       </state>
     </system>
@@ -82,8 +92,8 @@
       <file leaf-file-name="TanksGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="287" column="26" selection-start-line="287" selection-start-column="26" selection-end-line="287" selection-end-column="26" />
+            <state relative-caret-position="80">
+              <caret line="274" column="74" selection-start-line="274" selection-start-column="74" selection-end-line="274" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -1443,7 +1453,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1465889643878</updated>
-      <workItem from="1466017524256" duration="3679000" />
+      <workItem from="1466017524256" duration="4830000" />
     </task>
     <task id="LOCAL-00001" summary="initialize">
       <created>1466016590120</created>
@@ -1494,11 +1504,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466019808711</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="czołgi nie przenikają przez siebie">
+      <created>1466021219141</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1466021219141</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3679000" />
+    <option name="totallyTimeSpent" value="4830000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1543,7 +1560,8 @@
     <MESSAGE value="Tanks list added to Board" />
     <MESSAGE value="poprawiony ortograf" />
     <MESSAGE value="Job done - jeden czołg jeździ, reszta się rysuje z listy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Job done - jeden czołg jeździ, reszta się rysuje z listy" />
+    <MESSAGE value="czołgi nie przenikają przez siebie" />
+    <option name="LAST_COMMIT_MESSAGE" value="czołgi nie przenikają przez siebie" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1746,8 +1764,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/tanks/TanksGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="287" column="26" selection-start-line="287" selection-start-column="26" selection-end-line="287" selection-end-column="26" />
+        <state relative-caret-position="80">
+          <caret line="274" column="74" selection-start-line="274" selection-start-column="74" selection-end-line="274" selection-end-column="74" />
           <folding />
         </state>
       </provider>
