@@ -56,8 +56,14 @@ public class Board {
 
     }
     private  void createSocket(){
-        Socket socket = new Socket(ip, PORT);
-        SocketWorker sw = new SocketWorker(socket,this);
-        new Thread(sw).start();
+        Socket socket = null;
+        try {
+            socket = new Socket(ip, PORT);
+            SocketWorker sw = new SocketWorker(socket,this);
+            new Thread(sw).start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
