@@ -12,7 +12,6 @@ public class Block extends Rectangle{
         super(positionX, positionY, 25, 25);
     }
 
-
     public char getSymbol() {
         return symbol;
     }

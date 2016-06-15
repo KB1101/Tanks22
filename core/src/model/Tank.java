@@ -45,9 +45,6 @@ public class Tank extends Rectangle{
     }
 
 
-
-
-
     public Tank(int playerId, int lives, int positionX, int positionY){
         super(positionX,positionY,50,50);
         this.playerId = playerId;
