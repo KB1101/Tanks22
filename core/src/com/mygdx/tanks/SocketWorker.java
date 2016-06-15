@@ -53,6 +53,8 @@ public class SocketWorker implements Runnable {
             int uid = buffer[0];
 
 
+
+
             String suid = Integer.toString(uid);
             dos.writeBytes(suid+"\n\r");
             System.out.write(buffer, 0, bytes);
