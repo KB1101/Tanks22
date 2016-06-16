@@ -21,14 +21,14 @@ public class TanksGame extends ApplicationAdapter {
     Texture greenTankTexture, redTankTexture, blueTankTexture, orangeTankTexture;
     Texture shrubTexture, brickTexture, stoneTexture, missileTexture;
     //Tank tank = new Tank(1,5, Constants.TANK_START_X * Constants.TANK_SIZE, Constants.TANK_START_Y * Constants.TANK_SIZE);
-    @Deprecated int activePlayerId = 1;
+    int activePlayerId = 0;
     Board board;
 
     private Date date;
     private long timeStart;
     private long timeEnd;
     private long reloadTime; //milisekundy
-    private double missileSpeed;     // jednostki odswiezen
+    private double missileSpeed; //jednostki odswiezen
 
 
     @Override
@@ -53,6 +53,7 @@ public class TanksGame extends ApplicationAdapter {
 
     @Override
     public void render () {
+        this.activePlayerId = this.board.ID;
         update();
         Gdx.gl.glClearColor(0.0f, 0.0f, 0.0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -276,10 +277,13 @@ public class TanksGame extends ApplicationAdapter {
             kordy+=Integer.toString(missile.y)+" ";
             kordy+=Integer.toString(tank.getDirection().getValue());
 
+            //board.missilesList.add(missile);
             timeEnd = this.date.getTime() + this.reloadTime;
             this.board.send(kordy);
         }
     }
+
+
 
     private void collisionDetector(int  x, int y){
         Tank activeTank = board.tanksList.get(activePlayerId);
@@ -305,18 +309,23 @@ public class TanksGame extends ApplicationAdapter {
                 activeTank.y = y;
             }
         }
-        tankWithTankCollision(activeTank, x, y);
-        int missileId=-1;
-        int i=0;
-        for (Missile missile:board.missilesList){
-            if (activeTank.intersection(missile).width >5 && activeTank.intersection(missile).height >5) {
-                activeTank.setLives(activeTank.getLives()-1);
-                missileId =i;
-            }
-            i++;
+
+for(int uid = 0 ; uid < 3; uid ++) {
+    activeTank = board.tanksList.get(uid);
+    tankWithTankCollision(activeTank, x, y);
+    int missileId = -1;
+    int i = 0;
+    for (Missile missile : board.missilesList) {
+        if (activeTank.intersection(missile).width > 5 && activeTank.intersection(missile).height > 5) {
+            activeTank.setLives(activeTank.getLives() - 1);
+            missileId = i;
         }
-        if (missileId != -1)
-            deleteMissile(missileId);
+        i++;
+    }
+    if (missileId != -1)
+        deleteMissile(missileId);
+}
+
     }
 
     private void deleteMissile(int id){
@@ -334,11 +343,12 @@ public class TanksGame extends ApplicationAdapter {
         }
     }
 
+    /* niewolno tego wykonywać ( usunać czolgu z listy->board.tanksList )- jesli czołg stracił wszystkie swoje zycia nalezy wysłac go na ujemne koordynaty i zablokować  mu wysylanie z klawiatury !!!! */
     private void deleteUselessTanks()
     {
         for (int i=0; i<board.tanksList.size(); i++){
             if (board.tanksList.get(i).getLives() == 0)
-                board.tanksList.remove(i);
+                board.tanksList.get(i).setLocation(-1000,-1000);
         }
     }
 
@@ -347,29 +357,34 @@ public class TanksGame extends ApplicationAdapter {
         Tank tank = board.tanksList.get(activePlayerId);
         int x = (int) tank.getX();
         int y = (int) tank.getY();
+        if(x < 0 || y < 0) return;  // tutaj to sprawdzam !!!
         String str=Integer.toString(activePlayerId);
         //Odczyt klawiszy
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)){
             tank.x-= Constants.TANK_SPEED;
             tank.setDirection(LEFT);
+            collisionDetector(x,y);
             str+=" "+Integer.toString(tank.x)+" "+Integer.toString(tank.y)+" "+Integer.toString(tank.getDirection().getValue());
             this.board.send(str);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
             tank.x+= Constants.TANK_SPEED;
             tank.setDirection(Direction.RIGHT);
+            collisionDetector(x,y);
             str+=" "+Integer.toString(tank.x)+" "+Integer.toString(tank.y)+" "+Integer.toString(tank.getDirection().getValue());
             this.board.send(str);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.UP)){
             tank.y+= Constants.TANK_SPEED;
             tank.setDirection(Direction.UP);
+            collisionDetector(x,y);
             str+=" "+Integer.toString(tank.x)+" "+Integer.toString(tank.y)+" "+Integer.toString(tank.getDirection().getValue());
             this.board.send(str);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)){
             tank.y-= Constants.TANK_SPEED;
             tank.setDirection(Direction.DOWN);
+            collisionDetector(x,y);
             str+=" "+Integer.toString(tank.x)+" "+Integer.toString(tank.y)+" "+Integer.toString(tank.getDirection().getValue());
             this.board.send(str);
         }

@@ -1,7 +1,11 @@
 package com.mygdx.tanks;
 
 import model.Board;
+import model.Direction;
+import model.Missile;
+import model.Tank;
 
+import java.awt.*;
 import java.io.*;
 import java.net.Socket;
 import java.net.SocketAddress;
@@ -65,16 +69,95 @@ public class SocketWorker implements Runnable {
             String str;
             str = bufIn.readLine();
             int uid = Integer.parseInt(str);
+            this.board.setId(uid);
 
-
-            //String suid = Integer.toString(uid);
-            //dos.writeBytes(suid+"\n\r");
-            //System.out.write(buffer, 0, bytes);
-
-
+            System.out.println(uid);
 
             while ((bytes = bufIn.read(buffer)) != -1) {
+
                 System.out.print(buffer);
+                String strw = new String(buffer);
+                String[] wtf = strw.split(" ");
+                int id = Integer.parseInt(wtf[0]);
+                int x = Integer.parseInt(wtf[1]);
+                int y = Integer.parseInt(wtf[2]);
+                String[] wtf2 = wtf[3].split("\r\n");
+                int direction = Integer.parseInt(wtf2[0]);
+
+                if(id>=0 && id <=3){
+                    switch (direction){
+                        case 0: //left
+                        {
+                            this.board.tanksList.get(id).setDirection(Direction.LEFT);
+                            break;
+                        }
+                        case 1: //down
+                        {
+                            this.board.tanksList.get(id).setDirection(Direction.DOWN);
+                            break;
+                        }
+                        case 2: //right
+                        {
+                            this.board.tanksList.get(id).setDirection(Direction.RIGHT);
+                            break;
+                        }
+                        case 3: //up
+                        {
+                            this.board.tanksList.get(id).setDirection(Direction.UP);
+                            break;
+                        }
+
+                    }
+                    this.board.tanksList.get(id).setLocation(x,y);
+
+                } else {
+                    switch (direction){
+                        case 0: //left
+                        {
+                            Tank tank = new Tank(10, 5, x, y);
+                            tank.setDirection(Direction.LEFT);
+                            Missile ms = new Missile(tank,Direction.LEFT);
+                            ms.x = x;
+                            ms.y = y;
+                            this.board.missilesList.add(ms);
+                            break;
+                        }
+                        case 1: //down
+                        {
+                            Tank tank = new Tank(10, 5, x, y);
+                            tank.setDirection(Direction.DOWN);
+                            Missile ms = new Missile(tank,Direction.DOWN);
+                            ms.x = x;
+                            ms.y = y;
+                            this.board.missilesList.add(ms);
+                            break;
+                        }
+                        case 2: //right
+                        {
+                            Tank tank = new Tank(10, 5, x, y);
+                            tank.setDirection(Direction.RIGHT);
+                            Missile ms = new Missile(tank,Direction.RIGHT);
+                            ms.x = x;
+                            ms.y = y;
+                            this.board.missilesList.add(ms);
+                            break;
+                        }
+                        case 3: //up
+                        {
+                            Tank tank = new Tank(10, 5, x, y);
+                            tank.setDirection(Direction.UP);
+                            Missile ms = new Missile(tank,Direction.UP);
+                            ms.x = x;
+                            ms.y = y;
+                            this.board.missilesList.add(ms);
+                            break;
+                        }
+
+                    }
+                }
+
+
+
                 System.out.println(" ");
                 //  akcje
             }
@@ -98,38 +181,5 @@ public class SocketWorker implements Runnable {
             e.printStackTrace();
         }
     }
-
-
-        // na razie nieaktualnie
-    private void process(DataInputStream dis,DataOutputStream dos ){
-        try {
-            byte[] buffer = new byte[1024];
-            int bytes = 0;
-
-            bytes = dis.read(buffer);
-            int uid = buffer[0];
-
-
-
-
-            String suid = Integer.toString(uid);
-            dos.writeBytes(suid+"\n\r");
-            System.out.write(buffer, 0, bytes);
-
-
-
-            while ((bytes = dis.read(buffer)) != -1) {
-                System.out.write(buffer, 0, bytes);
-                System.out.println(" ");
-                //  akcje
-            }
-
-        } catch (Exception ex){
-            System.out.println(ex);
-        } finally {
-            //this.magazyn.delUser();
-        }
-    }
-
 
 }
