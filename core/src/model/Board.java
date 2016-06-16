@@ -13,6 +13,7 @@ public class Board {
 
     public static final int PORT = 8088;
     public static final String ip = "localhost";
+    public int ID = 0;
 
     private Socket socket;
     private SocketWorker sw;
@@ -62,7 +63,9 @@ public class Board {
     public void send(String text){
         this.sw.send(text);
     }
-
+    public void setId(int uid){
+        this.ID = uid;
+    }
     private  void createSocket(){
         this.socket = null;
         this.sw = null;
